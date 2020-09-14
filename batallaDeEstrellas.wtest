@@ -1,0 +1,28 @@
+import personajes.*
+import batallas.*
+
+test "toroSeQuedaConElUltimoObjetoDeSuRival" {
+	toro.manoAMano(pocardo)
+	assert.that(toro.botinActual().contains("cotonetes"))
+
+}
+
+test "tulipanReduceLaEnergiaDelRival"{
+	tulipan.manoAMano(pamela)
+	assert.that(pamela.energia()==3000)
+}
+
+test "elEquipo1GanaSinPelear"{
+	assert.that(pelea.ganaEquipo1())
+}
+
+test "laEnergiaDeToroQuedaALaMitadDespuesDePelearContraElEquipo1"{
+	pelea.batalla()
+	assert.that(toro.energia()==3900)
+}
+
+test "ganaElEquipo2YDanSusGritosDeVictoria"{
+	tulipan.perderEnergia(4000)
+	pamela.perderEnergia(3000)
+	assert.that(pelea.equipoVictorioso()==["No se metan con el toro","¡Siente el poder de la música!"])
+}
